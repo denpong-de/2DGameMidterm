@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: player
   m_EditorClassIdentifier: 
   jumpVelocity: 3
-  fallMultiply: 2.8
+  fallMultiply: 2.5
