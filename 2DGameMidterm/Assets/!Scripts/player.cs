@@ -1,24 +1,47 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class player : MonoBehaviour
 {
     Rigidbody2D Rigidbody;
+    float jumpVelocity = 3f;
+    float fallMultiply = 2f;
+
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if(jumpRequest == true)
+        {
+            Rigidbody.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+            jumpRequest = false;
+        }
+        betterGravityForJump();
     }
 
-    public void Jump()
+    //Jump System
+
+    bool jumpRequest = false;
+    public void pressJump()
     {
-        Debug.Log("It's working!");
+        jumpRequest = true;
+    }
+
+    void betterGravityForJump()
+    {
+        if(Rigidbody.velocity.y < 0)
+        {
+            Rigidbody.gravityScale = fallMultiply;
+        }
+        else
+        {
+            Rigidbody.gravityScale = 1;
+        }
     }
 }

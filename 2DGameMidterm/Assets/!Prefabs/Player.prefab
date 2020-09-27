@@ -56,7 +56,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!70 &250112041493249502
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -110,8 +110,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -710952147
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 45affaa6ebf2e0a4a996b8db8d0dff85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -184,7 +184,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2558837176242056589}
         m_TargetAssemblyTypeName: player, Assembly-CSharp
-        m_MethodName: Jump
+        m_MethodName: pressJump
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
