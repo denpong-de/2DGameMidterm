@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8945866157937707606}
   - component: {fileID: 6445450654237713328}
   m_Layer: 0
-  m_Name: BG_City_03
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
