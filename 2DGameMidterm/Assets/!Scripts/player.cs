@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class player : MonoBehaviour
 {
     Rigidbody2D Rigidbody;
-    float jumpVelocity = 3f;
-    float fallMultiply = 2f;
+    public playerValue Player; //ScriptableObject
 
     // Start is called before the first frame update
     void Awake()
@@ -19,7 +18,7 @@ public class player : MonoBehaviour
     {
         if(jumpRequest == true)
         {
-            Rigidbody.AddForce(Vector2.up * jumpVelocity, ForceMode2D.Impulse);
+            Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
             jumpRequest = false;
         }
         betterGravityForJump();
@@ -37,7 +36,7 @@ public class player : MonoBehaviour
     {
         if(Rigidbody.velocity.y < 0)
         {
-            Rigidbody.gravityScale = fallMultiply;
+            Rigidbody.gravityScale = Player.fallMultiply;
         }
         else
         {
