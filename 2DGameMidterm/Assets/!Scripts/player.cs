@@ -16,10 +16,11 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(jumpRequest == true)
+        if(jumpRequest == true && canJump == true)
         {
             Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
             jumpRequest = false;
+            canJump = false;
         }
         betterGravityForJump();
     }
@@ -27,9 +28,12 @@ public class player : MonoBehaviour
     //Jump System
 
     bool jumpRequest = false;
-    public void pressJump()
+    public void pressJump(InputAction.CallbackContext context)
     {
-        jumpRequest = true;
+        if(context.performed == true)
+        {
+            jumpRequest = true;
+        }    
     }
 
     void betterGravityForJump()
@@ -42,5 +46,12 @@ public class player : MonoBehaviour
         {
             Rigidbody.gravityScale = 1;
         }
+    }
+
+    bool canJump;
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        canJump = true;
+
     }
 }
