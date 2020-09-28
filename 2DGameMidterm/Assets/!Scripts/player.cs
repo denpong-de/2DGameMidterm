@@ -16,23 +16,17 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(jumpRequest == true && canJump == true)
-        {
-            Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
-            jumpRequest = false;
-            canJump = false;
-        }
         betterGravityForJump();
     }
 
     //Jump System
 
-    bool jumpRequest = false;
     public void pressJump(InputAction.CallbackContext context)
     {
-        if(context.performed == true)
+        if(context.performed == true && canJump == true)
         {
-            jumpRequest = true;
+            Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
+            canJump = false;
         }    
     }
 
