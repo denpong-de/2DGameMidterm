@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpVelocity: 5.5
   fallMultiply: 2.8
-  runSpeed: 10
+  runSpeed: 5
   SpawnDistance: 25
