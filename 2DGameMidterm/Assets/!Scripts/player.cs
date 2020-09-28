@@ -18,6 +18,7 @@ public class player : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Rigidbody.velocity = new Vector2(Player.runSpeed, Rigidbody.velocity.y);
         betterGravityForJump();
     }
 

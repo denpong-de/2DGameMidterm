@@ -8,4 +8,5 @@ public class playerValue : ScriptableObject
     [Header("Jump Settings")]
     public float jumpVelocity;
     public float fallMultiply;
+    public float runSpeed;
 }
