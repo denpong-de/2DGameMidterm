@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &36671930 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2558837176242056589, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
+  m_PrefabInstance: {fileID: 1760263197578712523}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b0abb2e6e786ac40a89d15d58f7481c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &248838169 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1760263198397438168, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
@@ -1260,7 +1271,7 @@ GameObject:
   - component: {fileID: 656337098}
   - component: {fileID: 656337097}
   m_Layer: 0
-  m_Name: levelPart_Start
+  m_Name: levelPartStart
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1395,8 +1406,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f47ffdf65de8f4743a38ccfe5cf432d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Level: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
   levelPart_Start: {fileID: 656337098}
-  levelPart_1: {fileID: 8968179793583778254, guid: c164653ac7b3ff742a695cefb07bf092, type: 3}
+  player: {fileID: 36671930}
+  levelPartList:
+  - {fileID: 8968179793583778254, guid: c164653ac7b3ff742a695cefb07bf092, type: 3}
+  - {fileID: 3872088046713671213, guid: b9dc7ba9e481a0d4f86237465220d2f2, type: 3}
 --- !u!4 &737907157
 Transform:
   m_ObjectHideFlags: 0

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public class levelGenerator : MonoBehaviour
 {
-    [SerializeField] private Transform levelPart_Start;
-    [SerializeField] private Transform levelPart_1;
-    [SerializeField] private player player;
-
     public playerValue Level; //ScriptableObject
+
+    [SerializeField] private Transform levelPart_Start;
+    [SerializeField] private player player;
+    [SerializeField] private List<Transform> levelPartList;
 
     private Vector3 lastEndPosition;
 
@@ -28,13 +28,14 @@ public class levelGenerator : MonoBehaviour
 
     private void SpawnLevelPart()
     {
-        Transform lastLevelPartTransform = SpawnLevelPart(lastEndPosition);
+        Transform chosenLevelPart = levelPartList[UnityEngine.Random.Range(0, levelPartList.Count)];
+        Transform lastLevelPartTransform = SpawnLevelPart(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastLevelPartTransform.Find("EndPosition").position;
     }
 
-    private Transform SpawnLevelPart(Vector3 spawnPosition)
+    private Transform SpawnLevelPart(Transform levelPart, Vector3 spawnPosition)
     {
-       Transform levelPartTransform = Instantiate(levelPart_1, spawnPosition, quaternion.identity);
+        Transform levelPartTransform = Instantiate(levelPart, spawnPosition, quaternion.identity);
         return levelPartTransform;
     }
 }

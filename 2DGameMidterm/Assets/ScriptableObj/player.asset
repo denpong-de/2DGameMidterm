@@ -15,3 +15,4 @@ MonoBehaviour:
   jumpVelocity: 5.5
   fallMultiply: 2.8
   runSpeed: 10
+  SpawnDistance: 25
