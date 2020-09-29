@@ -453,6 +453,7 @@ MonoBehaviour:
   bgProp: {fileID: 1015955028}
   bg: {fileID: 1897017449}
   ParallaxBG: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
+  player: {fileID: 36671930}
 --- !u!4 &232371537
 Transform:
   m_ObjectHideFlags: 0
@@ -532,7 +533,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298408235}
   m_LocalRotation: {x: 0.012287719, y: 0.14847304, z: -0.001844988, w: 0.98883843}
-  m_LocalPosition: {x: 3.5427737, y: -1.8411105, z: -21.532658}
+  m_LocalPosition: {x: 3.5410597, y: -1.8411105, z: -21.532131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1837112138}
@@ -649,7 +650,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.012287719, y: 0.14847304, z: -0.001844988, w: 0.98883843}
-  m_LocalPosition: {x: 3.5427737, y: -1.8411105, z: -21.532658}
+  m_LocalPosition: {x: 3.5410597, y: -1.8411105, z: -21.532131}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1740,7 +1741,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
-  pfTesting: {fileID: 0}
+  pfTesting: {fileID: 8968179793583778254, guid: bcfe2ac6b6b821245bdfd40f56de3491, type: 3}
   levelPart_Start: {fileID: 656337098}
   player: {fileID: 36671930}
   levelPartEasyList:
@@ -1991,14 +1992,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1841549985386866240, guid: 59b91b996bd649046b449e4f9498d0b6, type: 3}
-      propertyPath: m_SortingLayerID
-      value: -694154437
-      objectReference: {fileID: 0}
-    - target: {fileID: 1841549985386866240, guid: 59b91b996bd649046b449e4f9498d0b6, type: 3}
-      propertyPath: m_SortingLayer
-      value: -4
-      objectReference: {fileID: 0}
     - target: {fileID: 6869230874687877656, guid: 59b91b996bd649046b449e4f9498d0b6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
