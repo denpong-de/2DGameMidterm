@@ -9,9 +9,17 @@ public class levelGenerator : MonoBehaviour
 
     [SerializeField] private Transform levelPart_Start;
     [SerializeField] private player player;
-    [SerializeField] private List<Transform> levelPartList;
+    [SerializeField] private List<Transform> levelPartEasyList;
+    [SerializeField] private List<Transform> levelPartNormalList;
+
+    private enum Difficulty
+    {
+        Easy,
+        Normal
+    }
 
     private Vector3 lastEndPosition;
+    private int levelPartsSpawned;
 
     private void Awake()
     {
@@ -31,17 +39,33 @@ public class levelGenerator : MonoBehaviour
 
     //Spawn new level Part Method.
 
+    List<Transform> difficultyLevelPartList;
     private void SpawnLevelPart()
     {
-        Transform chosenLevelPart = levelPartList[UnityEngine.Random.Range(0, levelPartList.Count)];
+        switch (getDifficulty())
+        {
+            default:
+            case Difficulty.Easy:   difficultyLevelPartList = levelPartEasyList;   break;
+            case Difficulty.Normal: difficultyLevelPartList = levelPartNormalList; break;
+        }
+
+        Transform chosenLevelPart = difficultyLevelPartList[UnityEngine.Random.Range(0, difficultyLevelPartList.Count)];
+
         Transform lastLevelPartTransform = SpawnLevelPart(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastLevelPartTransform.Find("EndPosition").position;
+        levelPartsSpawned++;
     }
 
     private Transform SpawnLevelPart(Transform levelPart, Vector3 spawnPosition)
     {
         Transform levelPartTransform = Instantiate(levelPart, spawnPosition, quaternion.identity);
         return levelPartTransform;
+    }
+
+    private Difficulty getDifficulty()
+    {
+        if (levelPartsSpawned >= 5) return Difficulty.Normal;
+        return Difficulty.Easy;
     }
 
     //Delete old level Part Method.
