@@ -58,10 +58,12 @@ public class levelGenerator : MonoBehaviour
 
         Transform chosenLevelPart = difficultyLevelPartList[UnityEngine.Random.Range(0, difficultyLevelPartList.Count)];
 
+        //Warning : For testing only!
         if (pfTesting != null)
         {
             chosenLevelPart = pfTesting;
         }
+
         Transform lastLevelPartTransform = SpawnLevelPart(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastLevelPartTransform.Find("EndPosition").position;
         levelPartsSpawned++;
