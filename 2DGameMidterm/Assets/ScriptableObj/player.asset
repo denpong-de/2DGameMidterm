@@ -16,3 +16,5 @@ MonoBehaviour:
   fallMultiply: 2.8
   runSpeed: 5
   SpawnDistance: 25
+  bgPropMultiplier: {x: 0.4, y: 0.1}
+  bgMultiplier: {x: 0.6, y: 0.3}

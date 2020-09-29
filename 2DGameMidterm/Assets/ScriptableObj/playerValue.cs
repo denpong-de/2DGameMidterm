@@ -14,4 +14,9 @@ public class playerValue : ScriptableObject
     //2.
     [Header("Level Generator")]
     [Range(0f, 50f)] public float SpawnDistance;
+
+    //3.
+    [Header("BG Setting")]
+    public Vector2 bgPropMultiplier;
+    public Vector2 bgMultiplier;
 }
