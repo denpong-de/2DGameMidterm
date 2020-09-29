@@ -7,6 +7,7 @@ public class levelGenerator : MonoBehaviour
 {
     public playerValue Level; //ScriptableObject
 
+    [SerializeField] private Transform pfTesting; //Warning : For testing only!
     [SerializeField] private Transform levelPart_Start;
     [SerializeField] private player player;
     [SerializeField] private List<Transform> levelPartEasyList;
@@ -24,6 +25,12 @@ public class levelGenerator : MonoBehaviour
     private void Awake()
     {
         lastEndPosition = levelPart_Start.Find("EndPosition").position;
+
+        //Warning : For testing only!
+        if (pfTesting != null)
+        {
+            Debug.Log("Warning : Using Debug Testing Platform!");
+        }
     }
 
     private void Update()
@@ -51,6 +58,10 @@ public class levelGenerator : MonoBehaviour
 
         Transform chosenLevelPart = difficultyLevelPartList[UnityEngine.Random.Range(0, difficultyLevelPartList.Count)];
 
+        if (pfTesting != null)
+        {
+            chosenLevelPart = pfTesting;
+        }
         Transform lastLevelPartTransform = SpawnLevelPart(chosenLevelPart, lastEndPosition);
         lastEndPosition = lastLevelPartTransform.Find("EndPosition").position;
         levelPartsSpawned++;
