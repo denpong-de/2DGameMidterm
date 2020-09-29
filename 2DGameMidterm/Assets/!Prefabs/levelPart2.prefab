@@ -66,7 +66,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 3
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -235,8 +235,8 @@ Tilemap:
     m_Data: {fileID: 21300038, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300042, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 21300076, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 2
     m_Data: {fileID: 21300078, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
   - m_RefCount: 2
@@ -247,8 +247,8 @@ Tilemap:
     m_Data: {fileID: 21300064, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300068, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300076, guid: 191b2ba602b42f843aa9d491a33a64b9, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 18
     m_Data:
@@ -1387,7 +1387,7 @@ GameObject:
   - component: {fileID: 3872088046713671213}
   m_Layer: 0
   m_Name: levelPart2
-  m_TagString: Untagged
+  m_TagString: levelPart
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

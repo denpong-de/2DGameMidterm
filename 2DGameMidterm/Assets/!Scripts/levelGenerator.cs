@@ -20,11 +20,16 @@ public class levelGenerator : MonoBehaviour
 
     private void Update()
     {
+        //Spawn new level Part.
         if (Vector3.Distance(player.transform.position, lastEndPosition) < Level.SpawnDistance)
         {
             SpawnLevelPart();
         }
+
+        deleteOldLevelPart();
     }
+
+    //Spawn new level Part Method.
 
     private void SpawnLevelPart()
     {
@@ -37,5 +42,20 @@ public class levelGenerator : MonoBehaviour
     {
         Transform levelPartTransform = Instantiate(levelPart, spawnPosition, quaternion.identity);
         return levelPartTransform;
+    }
+
+    //Delete old level Part Method.
+
+    private GameObject[] levelPartInGame;
+    private void deleteOldLevelPart()
+    {
+        levelPartInGame = GameObject.FindGameObjectsWithTag("levelPart");
+        foreach (GameObject levelPartInGame in levelPartInGame)
+        {
+            if (Vector3.Distance(levelPartInGame.transform.position, player.transform.position) > Level.SpawnDistance)
+            {
+                Destroy(levelPartInGame);
+            }
+        }
     }
 }
