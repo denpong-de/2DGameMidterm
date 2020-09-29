@@ -199,7 +199,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 298408235}
   m_LocalRotation: {x: 0.012287719, y: 0.14847304, z: -0.001844988, w: 0.98883843}
-  m_LocalPosition: {x: 3.5411186, y: -1.8411106, z: -11.532149}
+  m_LocalPosition: {x: 3.545302, y: -1.8411106, z: -11.533435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1837112138}
@@ -316,7 +316,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0.012287719, y: 0.14847304, z: -0.001844988, w: 0.98883843}
-  m_LocalPosition: {x: 3.5411186, y: -1.8411106, z: -11.532149}
+  m_LocalPosition: {x: 3.545302, y: -1.8411106, z: -11.533435}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1407,11 +1407,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
+  pfTesting: {fileID: 8968179793583778254, guid: bcfe2ac6b6b821245bdfd40f56de3491, type: 3}
   levelPart_Start: {fileID: 656337098}
   player: {fileID: 36671930}
-  levelPartList:
+  levelPartEasyList:
   - {fileID: 8968179793583778254, guid: c164653ac7b3ff742a695cefb07bf092, type: 3}
   - {fileID: 3872088046713671213, guid: b9dc7ba9e481a0d4f86237465220d2f2, type: 3}
+  levelPartNormalList:
+  - {fileID: 8968179793583778254, guid: bcfe2ac6b6b821245bdfd40f56de3491, type: 3}
+  - {fileID: 3872088046713671213, guid: 5bae3d1f320e9ad40a2158e7962ca60e, type: 3}
 --- !u!4 &737907157
 Transform:
   m_ObjectHideFlags: 0
