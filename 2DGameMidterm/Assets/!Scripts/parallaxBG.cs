@@ -13,7 +13,6 @@ public class parallaxBG : MonoBehaviour
     private Vector3 deltaMovement;
 
     [SerializeField] private player player;
-    private float lastEndPosition;
 
     void Awake()
     {
@@ -30,7 +29,8 @@ public class parallaxBG : MonoBehaviour
 
         cameraPosition = cameraTransform.position;
 
-        infiniteLevel();
+        infiniteLevel(bg);
+        infiniteLevel(bgProp);
     }
 
     private void objParallax(Transform obj, Vector2 Multiplier)
@@ -39,13 +39,13 @@ public class parallaxBG : MonoBehaviour
         cameraPosition = cameraTransform.position;
     }
 
-    private void infiniteLevel()
+    private void infiniteLevel(Transform obj)
     {
-        lastEndPosition = bg.Find("EndPosition").position.x;
+        float lastEndPosition = obj.Find("EndPosition").position.x;
 
         if (player.transform.position.x >= lastEndPosition)
         {
-            bg.position = new Vector3(player.transform.position.x, bg.transform.position.y);
+            obj.position = new Vector3(player.transform.position.x, obj.transform.position.y);
         } 
     }
 }
