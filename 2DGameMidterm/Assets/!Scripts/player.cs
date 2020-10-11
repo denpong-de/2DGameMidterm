@@ -52,4 +52,13 @@ public class player : MonoBehaviour
         canJump = true;
         Animator.SetBool("isJump", false);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "coin")
+        {
+            Player.coinCount++;
+            Destroy(collision.gameObject);
+        }
+    }
 }

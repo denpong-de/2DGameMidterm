@@ -19,4 +19,8 @@ public class playerValue : ScriptableObject
     [Header("BG Setting")]
     public Vector2 bgPropMultiplier;
     public Vector2 bgMultiplier;
+
+    //4.
+    [Header("InGame Value")]
+    public int coinCount;
 }
