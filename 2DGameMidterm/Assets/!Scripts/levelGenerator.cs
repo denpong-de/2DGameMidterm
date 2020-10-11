@@ -77,7 +77,7 @@ public class levelGenerator : MonoBehaviour
 
     private Difficulty getDifficulty()
     {
-        if (levelPartsSpawned >= 5) return Difficulty.Normal;
+        if (Level.coinCount >= 5) return Difficulty.Normal;
         return Difficulty.Easy;
     }
 

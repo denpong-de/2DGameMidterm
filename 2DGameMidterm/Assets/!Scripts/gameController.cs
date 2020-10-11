@@ -8,14 +8,13 @@ public class gameController : MonoBehaviour
     public playerValue gameValues; //ScriptableObject
     public Text coinCountTXT;
 
-    void Start()
+    private void Start()
     {
-        coinCountTXT.text = ("Coin : " + gameValues.coinCount);
+        gameValues.coinCount = 0;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        coinCountTXT.text = ("Coin : " + gameValues.coinCount);
     }
 }

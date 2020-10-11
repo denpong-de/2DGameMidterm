@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 { 
@@ -59,6 +60,10 @@ public class player : MonoBehaviour
         {
             Player.coinCount++;
             Destroy(collision.gameObject);
+        }
+        if (collision.tag == "Respawn")
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }
