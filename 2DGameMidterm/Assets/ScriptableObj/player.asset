@@ -18,3 +18,4 @@ MonoBehaviour:
   SpawnDistance: 25
   bgPropMultiplier: {x: 0.4, y: 0.1}
   bgMultiplier: {x: 0.6, y: 0.3}
+  coinCount: 2
