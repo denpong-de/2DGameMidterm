@@ -61,12 +61,12 @@ public class player : MonoBehaviour
         if(collision.tag == "coin")
         {
             Player.coinCount++;
+            gameEvent.current.onCoinTriggerEnter();
             Destroy(collision.gameObject);
         }
         if (collision.tag == "Respawn")
         {
             gameEvent.current.RespawnTriggerEnter();
-            Time.timeScale = 0;
         }
     }
 }

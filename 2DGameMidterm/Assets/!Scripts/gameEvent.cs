@@ -20,4 +20,13 @@ public class gameEvent : MonoBehaviour
             onRespawnTriggerEnter();
         }
     }
+
+    public Action onCoinTriggerEnter;
+    public void CoinTriggerEnter()
+    {
+        if (onCoinTriggerEnter != null)
+        {
+            onCoinTriggerEnter();
+        }
+    }
 }

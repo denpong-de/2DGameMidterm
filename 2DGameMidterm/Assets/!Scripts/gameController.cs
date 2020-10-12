@@ -15,10 +15,13 @@ public class gameController : MonoBehaviour
     {
         gameValues.coinCount = 0;
 
+        gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
     }
 
-    void Update()
+    //onCoinTriggerEnter listener.
+
+    private void OnCoinCountUpdate()
     {
         coinCountTXT.text = ("Coin : " + gameValues.coinCount);
     }
@@ -27,6 +30,8 @@ public class gameController : MonoBehaviour
 
     private void OnResultScreenOpen()
     {
+        Time.timeScale = 0;
+        PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
         resultCanv.gameObject.SetActive(true);
     }
 
@@ -40,8 +45,11 @@ public class gameController : MonoBehaviour
 
     public void extraLife()
     {
+        PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") - gameValues.coinCount);
+
         player.transform.position = gameValues.BeforeDeadPosition;
         Time.timeScale = 1;
+
         resultCanv.gameObject.SetActive(false);
     }
 }
