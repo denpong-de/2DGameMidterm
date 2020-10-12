@@ -21,6 +21,10 @@ public class playerValue : ScriptableObject
     public Vector2 bgMultiplier;
 
     //4.
+    [Header("Game price")]
+    public int extraLifePrice;
+
+    //5.
     [Header("InGame Value")]
     public int coinCount;
     public Vector3 BeforeDeadPosition;

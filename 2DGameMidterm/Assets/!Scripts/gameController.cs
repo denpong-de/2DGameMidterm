@@ -8,7 +8,7 @@ public class gameController : MonoBehaviour
 {
     public playerValue gameValues; //ScriptableObject
     public GameObject player;
-    public Text coinCountTXT;
+    public Text[] texts;
     public Canvas resultCanv;
 
     private void Start()
@@ -23,15 +23,18 @@ public class gameController : MonoBehaviour
 
     private void OnCoinCountUpdate()
     {
-        coinCountTXT.text = ("Coin : " + gameValues.coinCount);
+        texts[0].text = ("" + gameValues.coinCount);
     }
 
     //onRespawnTriggerEnter listener.
 
+    private int myCoin;
     private void OnResultScreenOpen()
     {
         Time.timeScale = 0;
         PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
+        myCoin = PlayerPrefs.GetInt("MyCoin");
+        texts[1].text = ("My Coin : " + myCoin);
         resultCanv.gameObject.SetActive(true);
     }
 
@@ -45,11 +48,17 @@ public class gameController : MonoBehaviour
 
     public void extraLife()
     {
-        PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") - gameValues.coinCount);
+        if (myCoin >= gameValues.extraLifePrice)
+        {
+            PlayerPrefs.SetInt("MyCoin", myCoin - gameValues.extraLifePrice);
 
-        player.transform.position = gameValues.BeforeDeadPosition;
-        Time.timeScale = 1;
-
-        resultCanv.gameObject.SetActive(false);
+            player.transform.position = gameValues.BeforeDeadPosition;
+            Time.timeScale = 1;
+            resultCanv.gameObject.SetActive(false);
+        }
+        else
+        {
+            texts[2].gameObject.SetActive(true);
+        }
     }
 }
