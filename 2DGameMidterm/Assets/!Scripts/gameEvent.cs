@@ -29,4 +29,13 @@ public class gameEvent : MonoBehaviour
             onCoinTriggerEnter();
         }
     }
+
+    public Action onEnemyTriggerEnter;
+    public void EnemyTriggerEnter()
+    {
+        if (onEnemyTriggerEnter != null)
+        {
+            onEnemyTriggerEnter();
+        }
+    }
 }

@@ -24,6 +24,7 @@ public class playerValue : ScriptableObject
     public int extraLifePrice;
 
     [Header("In Game Value")]
+    public int HealthPoint;
     public int coinCount;
     public Vector3 BeforeDeadPosition;
 }

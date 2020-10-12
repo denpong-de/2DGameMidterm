@@ -18,6 +18,8 @@ MonoBehaviour:
   SpawnDistance: 30
   bgPropMultiplier: {x: 0.4, y: 0.1}
   bgMultiplier: {x: 0.6, y: 0.3}
+  easyToNormal: 10
   extraLifePrice: 100
-  coinCount: 3
-  BeforeDeadPosition: {x: 52.998, y: 0, z: 0}
+  HealthPoint: 1
+  coinCount: 7
+  BeforeDeadPosition: {x: 129.433, y: 0, z: 0}

@@ -8,15 +8,23 @@ public class gameController : MonoBehaviour
 {
     public playerValue gameValues; //ScriptableObject
     public GameObject player;
+    public Canvas resultCanv;
     public Text[] texts;
     public Button[] buttons;
-    public Canvas resultCanv;
+    public Image[] hearts;
+
+
+    private void Awake()
+    {
+        healthBarSetup();
+    }
 
     private void Start()
     {
         gameValues.coinCount = 0;
 
         gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
+        gameEvent.current.onEnemyTriggerEnter += OnHealthPointUpdate;
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
     }
 
@@ -27,12 +35,24 @@ public class gameController : MonoBehaviour
         texts[0].text = ("" + gameValues.coinCount);
     }
 
+    //onEnemyTriggerEnter listener.
+
+    private void OnHealthPointUpdate()
+    {
+        hearts[gameValues.HealthPoint].enabled = false;
+    }
+
     //onRespawnTriggerEnter listener.
 
     private int myCoin;
     private void OnResultScreenOpen()
     {
         Time.timeScale = 0;
+
+        foreach(Image image in hearts)
+        {
+            image.enabled = false;
+        }
 
         PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
         myCoin = PlayerPrefs.GetInt("MyCoin");
@@ -43,6 +63,16 @@ public class gameController : MonoBehaviour
         {
             buttons[0].interactable = false;
             texts[2].gameObject.SetActive(true);
+        }
+    }
+
+    //Set Health Bar to match the Health Points.
+
+    private void healthBarSetup()
+    {
+        for (int i = 4; i > gameValues.HealthPoint - 1; i--)
+        {
+            hearts[i].enabled = false;
         }
     }
 

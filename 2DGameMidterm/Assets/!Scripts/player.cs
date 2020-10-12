@@ -61,8 +61,21 @@ public class player : MonoBehaviour
         if(collision.tag == "coin")
         {
             Player.coinCount++;
-            gameEvent.current.onCoinTriggerEnter();
+            gameEvent.current.CoinTriggerEnter();
             Destroy(collision.gameObject);
+        }
+        if (collision.tag == "enemy")
+        {
+            Player.HealthPoint--;
+
+            if(Player.HealthPoint <= 0)
+            {
+                gameEvent.current.RespawnTriggerEnter();
+            }
+            else
+            {
+                gameEvent.current.EnemyTriggerEnter();
+            }
         }
         if (collision.tag == "Respawn")
         {
