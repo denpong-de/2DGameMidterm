@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class gameController : MonoBehaviour
 {
     public playerValue gameValues; //ScriptableObject
+    public GameObject player;
     public Text coinCountTXT;
-    public Canvas resultCanV;
+    public Canvas resultCanv;
 
     private void Start()
     {
         gameValues.coinCount = 0;
+
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
     }
 
@@ -25,7 +27,7 @@ public class gameController : MonoBehaviour
 
     private void OnResultScreenOpen()
     {
-        resultCanV.gameObject.SetActive(true);
+        resultCanv.gameObject.SetActive(true);
     }
 
     //Button Behavior.
@@ -34,5 +36,12 @@ public class gameController : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
+    }
+
+    public void extraLife()
+    {
+        player.transform.position = gameValues.BeforeDeadPosition;
+        Time.timeScale = 1;
+        resultCanv.gameObject.SetActive(false);
     }
 }

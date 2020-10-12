@@ -67,17 +67,6 @@ public class player : MonoBehaviour
         {
             gameEvent.current.RespawnTriggerEnter();
             Time.timeScale = 0;
-            Debug.Log(Player.BeforeDeadPosition);
         }
-    }
-
-    //Button Behavior.
-
-    public Canvas Canvas;
-    public void extraLife()
-    {
-        this.transform.position = Player.BeforeDeadPosition;
-        Time.timeScale = 1;
-        Canvas.gameObject.SetActive(false);
     }
 }
