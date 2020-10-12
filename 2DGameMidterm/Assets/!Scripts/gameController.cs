@@ -21,12 +21,15 @@ public class gameController : MonoBehaviour
         coinCountTXT.text = ("Coin : " + gameValues.coinCount);
     }
 
+    //onRespawnTriggerEnter listener.
+
     private void OnResultScreenOpen()
     {
         resultCanV.gameObject.SetActive(true);
     }
 
     //Button Behavior.
+
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

@@ -23,4 +23,5 @@ public class playerValue : ScriptableObject
     //4.
     [Header("InGame Value")]
     public int coinCount;
+    public Vector3 BeforeDeadPosition;
 }
