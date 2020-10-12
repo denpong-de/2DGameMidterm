@@ -12,12 +12,12 @@ public class gameEvent : MonoBehaviour
         current = this;
     }
 
-    public Action onCoinTriggerEnter;
-    public void CoinTriggerEnter()
+    public Action onRespawnTriggerEnter;
+    public void RespawnTriggerEnter()
     {
-        if(onCoinTriggerEnter != null)
+        if(onRespawnTriggerEnter != null)
         {
-            onCoinTriggerEnter();
+            onRespawnTriggerEnter();
         }
     }
 }

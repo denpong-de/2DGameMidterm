@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.SceneManagement;
 
 public class player : MonoBehaviour
 { 
@@ -63,7 +62,8 @@ public class player : MonoBehaviour
         }
         if (collision.tag == "Respawn")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            gameEvent.current.RespawnTriggerEnter();
+            Time.timeScale = 0;
         }
     }
 }
