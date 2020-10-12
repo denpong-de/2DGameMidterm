@@ -70,6 +70,8 @@ public class gameController : MonoBehaviour
 
     private void healthBarSetup()
     {
+        gameValues.HealthPoint = 1;
+
         for (int i = 4; i > gameValues.HealthPoint - 1; i--)
         {
             hearts[i].enabled = false;
