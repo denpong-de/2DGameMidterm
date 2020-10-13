@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class gameController : MonoBehaviour
 {
     public playerValue gameValues; //ScriptableObject
+
     public GameObject player;
     public Canvas resultCanv;
     public Text[] texts;
