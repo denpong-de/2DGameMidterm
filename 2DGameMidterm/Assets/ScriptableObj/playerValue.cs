@@ -26,5 +26,7 @@ public class playerValue : ScriptableObject
     [Header("In Game Value")]
     public int HealthPoint;
     public int coinCount;
+    public float score;
     public Vector3 BeforeDeadPosition;
+    public bool playAgain;
 }

@@ -26,9 +26,18 @@ public class mainMenuController : MonoBehaviour
         playerAnimator = player.GetComponent<Animator>();
         transitionAnimator = buyTransition.GetComponent<Animator>();
         Rigidbody = player.GetComponent<Rigidbody2D>();
+    }
 
+    private void Start()
+    {
         gameValues.HealthPoint = 1;
         myCoin = PlayerPrefs.GetInt("MyCoin");
+
+        if (gameValues.playAgain)
+        {
+            startBuying();
+            gameValues.playAgain = false;
+        }
     }
 
     private void FixedUpdate()
@@ -50,6 +59,11 @@ public class mainMenuController : MonoBehaviour
     {
         PlayerPrefs.SetInt("MyCoin", myCoin);
         SceneManager.LoadScene(1);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 
     public void buyHealth()
@@ -79,6 +93,11 @@ public class mainMenuController : MonoBehaviour
         isStart = false;
         Rigidbody.velocity = Vector3.zero;
 
+        startBuying();
+    }
+
+    private void startBuying()
+    {
         transitionAnimator.SetTrigger("isBuying");
 
         buyFade.gameObject.SetActive(true);
