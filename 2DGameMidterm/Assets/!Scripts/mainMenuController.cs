@@ -46,6 +46,12 @@ public class mainMenuController : MonoBehaviour
         StartCoroutine(playerRunning());
     }
 
+    public void startGame()
+    {
+        PlayerPrefs.SetInt("MyCoin", myCoin);
+        SceneManager.LoadScene(1);
+    }
+
     public void buyHealth()
     {
         if(myCoin >= 15 && gameValues.HealthPoint < 5)
@@ -53,6 +59,7 @@ public class mainMenuController : MonoBehaviour
             gameValues.HealthPoint++;
             menuHearts[(gameValues.HealthPoint - 2)].gameObject.SetActive(true);
             myCoin = myCoin - 15;
+            myCoinTXT.text = ("" + myCoin);
         }
         else
         {
