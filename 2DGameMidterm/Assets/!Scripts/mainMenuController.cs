@@ -2,30 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class mainMenuController : MonoBehaviour
 {
-    public playerValue gameValue; //ScriptableObject
+    public playerValue gameValues; //ScriptableObject
 
-    Animator animator;
+    Animator playerAnimator;
+    Animator transitionAnimator;
     Rigidbody2D Rigidbody;
 
     public GameObject player;
+    public GameObject buyTransition;
+    public Canvas buyFade;
+    public Text myCoinTXT;
+    public Image[] menuHearts;
+
     private bool isStart;
+    private int myCoin;
 
     private void Awake()
     {
-        animator = player.GetComponent<Animator>();
+        playerAnimator = player.GetComponent<Animator>();
+        transitionAnimator = buyTransition.GetComponent<Animator>();
         Rigidbody = player.GetComponent<Rigidbody2D>();
+
+        gameValues.HealthPoint = 1;
+        myCoin = PlayerPrefs.GetInt("MyCoin");
     }
 
     private void FixedUpdate()
     {
-        if (isStart)
+        if (isStart == true)
         {
-            Rigidbody.velocity = new Vector2(gameValue.runSpeed, Rigidbody.velocity.y);
+            Rigidbody.velocity = new Vector2(gameValues.runSpeed, Rigidbody.velocity.y);
         }
-
     }
 
     //Button Behavior.
@@ -35,12 +46,35 @@ public class mainMenuController : MonoBehaviour
         StartCoroutine(playerRunning());
     }
 
+    public void buyHealth()
+    {
+        if(myCoin >= 15 && gameValues.HealthPoint < 5)
+        {
+            gameValues.HealthPoint++;
+            menuHearts[(gameValues.HealthPoint - 2)].gameObject.SetActive(true);
+            myCoin = myCoin - 15;
+        }
+        else
+        {
+            Debug.Log("You don't have enough coin!");
+        }
+    }
+
     IEnumerator playerRunning()
     {
-        animator.SetTrigger("isStart");
+        //Running Animation Start.
+        playerAnimator.SetTrigger("isStart");
         isStart = true;
-        yield return new WaitForSeconds(1.5f);
+
+        yield return new WaitForSeconds(1.1f);
+
+        //Running Animation Stop.
         isStart = false;
-        SceneManager.LoadScene(1);
+        Rigidbody.velocity = Vector3.zero;
+
+        transitionAnimator.SetTrigger("isBuying");
+
+        buyFade.gameObject.SetActive(true);
+        myCoinTXT.text = ("" + myCoin);
     }
 }

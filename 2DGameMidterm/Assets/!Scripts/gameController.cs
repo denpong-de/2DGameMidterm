@@ -59,7 +59,7 @@ public class gameController : MonoBehaviour
         myCoin = PlayerPrefs.GetInt("MyCoin");
 
         resultCanv.gameObject.SetActive(true);
-        texts[1].text = ("My Coin : " + myCoin);
+        texts[1].text = ("" + myCoin);
         if (myCoin <= gameValues.extraLifePrice)
         {
             buttons[0].interactable = false;
@@ -71,8 +71,6 @@ public class gameController : MonoBehaviour
 
     private void healthBarSetup()
     {
-        gameValues.HealthPoint = 1;
-
         for (int i = 4; i > gameValues.HealthPoint - 1; i--)
         {
             hearts[i].enabled = false;
