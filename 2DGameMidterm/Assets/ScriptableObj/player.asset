@@ -21,7 +21,7 @@ MonoBehaviour:
   easyToNormal: 10
   extraLifePrice: 100
   HealthPoint: 1
-  coinCount: 0
-  score: 12.020742
-  BeforeDeadPosition: {x: 1, y: 0, z: 0}
+  coinCount: 8
+  score: 140.02103
+  BeforeDeadPosition: {x: 129.55301, y: 0, z: 0}
   playAgain: 0

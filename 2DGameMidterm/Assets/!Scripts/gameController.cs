@@ -55,6 +55,7 @@ public class gameController : MonoBehaviour
     {
         Time.timeScale = 0;
 
+        gameValues.HealthPoint = 0;
         foreach(Image image in hearts)
         {
             image.enabled = false;
@@ -112,10 +113,11 @@ public class gameController : MonoBehaviour
 
     public void extraLife()
     {
-
         PlayerPrefs.SetInt("MyCoin", myCoin - gameValues.extraLifePrice);
 
         player.transform.position = gameValues.BeforeDeadPosition;
+        gameValues.HealthPoint++;
+        hearts[0].enabled = true;
         Time.timeScale = 1;
         resultCanv.gameObject.SetActive(false);
     }
