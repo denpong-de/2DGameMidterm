@@ -15,6 +15,13 @@ MonoBehaviour:
   jumpVelocity: 5.5
   fallMultiply: 2.8
   runSpeed: 5
-  SpawnDistance: 25
+  SpawnDistance: 30
   bgPropMultiplier: {x: 0.4, y: 0.1}
   bgMultiplier: {x: 0.6, y: 0.3}
+  easyToNormal: 10
+  extraLifePrice: 100
+  HealthPoint: 1
+  coinCount: 0
+  score: 12.020742
+  BeforeDeadPosition: {x: 1, y: 0, z: 0}
+  playAgain: 0

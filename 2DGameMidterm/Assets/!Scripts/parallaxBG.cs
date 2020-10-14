@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class parallaxBG : MonoBehaviour
 {
-    [SerializeField] private Transform bgProp;
-    [SerializeField] private Transform bg;
     public playerValue ParallaxBG; //ScriptableObject
 
+    [SerializeField] private Transform bgProp;
+    [SerializeField] private Transform bg;
+ 
     private Transform cameraTransform;
     private Vector3 cameraPosition;
     private Vector3 deltaMovement;

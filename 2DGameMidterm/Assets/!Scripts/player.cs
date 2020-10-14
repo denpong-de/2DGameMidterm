@@ -22,7 +22,7 @@ public class player : MonoBehaviour
         betterGravityForJump();
     }
 
-    //Jump System
+    //Jump System.
 
     public void pressJump(InputAction.CallbackContext context)
     {
@@ -46,10 +46,40 @@ public class player : MonoBehaviour
         }
     }
 
+    //Collision.
+
     bool canJump;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         canJump = true;
         Animator.SetBool("isJump", false);
+        Player.BeforeDeadPosition = collision.transform.position;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "coin")
+        {
+            Player.coinCount++;
+            gameEvent.current.CoinTriggerEnter();
+            Destroy(collision.gameObject);
+        }
+        if (collision.tag == "enemy")
+        {
+            Player.HealthPoint--;
+
+            if(Player.HealthPoint <= 0)
+            {
+                gameEvent.current.RespawnTriggerEnter();
+            }
+            else
+            {
+                gameEvent.current.EnemyTriggerEnter();
+            }
+        }
+        if (collision.tag == "Respawn")
+        {
+            gameEvent.current.RespawnTriggerEnter();
+        }
     }
 }
