@@ -6,6 +6,8 @@ public class lightBehav : MonoBehaviour
 {
     Animator Animator;
 
+    public float delayTime;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +18,7 @@ public class lightBehav : MonoBehaviour
 
     IEnumerator LightDelay()
     {
-        float random = Random.Range(0, 4f);
+        float random = Random.Range(0, delayTime);
         yield return new WaitForSeconds(random);
         Animator.enabled = true;
     }
