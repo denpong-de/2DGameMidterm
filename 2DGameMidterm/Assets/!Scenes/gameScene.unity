@@ -982,7 +982,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: You don't have enough coin!
+  m_Text: You don't have enough coin or already bought it once.
 --- !u!222 &494356791
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3826,7 +3826,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23250002, y: 0.76666677}
   m_AnchorMax: {x: 0.23250002, y: 0.76666677}
-  m_AnchoredPosition: {x: 240.04218, y: 25.4}
+  m_AnchoredPosition: {x: 240.04224, y: 25.400024}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1738828594

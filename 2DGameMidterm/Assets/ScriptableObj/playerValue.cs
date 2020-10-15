@@ -28,6 +28,7 @@ public class playerValue : ScriptableObject
     public int HealthPoint;
     public int coinCount;
     public float currentScore;
+    public int difficultyIndex;
     public Vector3 BeforeDeadPosition;
     public bool playAgain;
 }

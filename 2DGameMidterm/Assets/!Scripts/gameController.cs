@@ -84,8 +84,9 @@ public class gameController : MonoBehaviour
 
         resultCanv.gameObject.SetActive(true);
         texts[1].text = ("" + myCoin);
+
         //Not enough coin.
-        if (myCoin <= gameValues.extraLifePrice)
+        if ( alreadyExtraLife || myCoin <= gameValues.extraLifePrice )
         {
             buttons[0].interactable = false;
             texts[2].gameObject.SetActive(true);
@@ -111,6 +112,7 @@ public class gameController : MonoBehaviour
 
     //Button Behavior.
 
+    private bool alreadyExtraLife;
     public void extraLife()
     {
         PlayerPrefs.SetInt("MyCoin", myCoin - gameValues.extraLifePrice);
@@ -118,6 +120,7 @@ public class gameController : MonoBehaviour
         player.transform.position = gameValues.BeforeDeadPosition;
         gameValues.HealthPoint++;
         hearts[0].enabled = true;
+        alreadyExtraLife = true;
         Time.timeScale = 1;
         resultCanv.gameObject.SetActive(false);
     }
