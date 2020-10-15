@@ -3212,6 +3212,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109248197}
   m_CullTransparentMesh: 0
+--- !u!1 &1129055972 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 721530933740161236, guid: 80314ec284696c84a89d1038de843542, type: 3}
+  m_PrefabInstance: {fileID: 721530933843944898}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1129055974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129055972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b11e135b6e1a04f89082b6d5655df3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameValues: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
 --- !u!1001 &1143926679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5240,7 +5258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Color.g
-      value: 0.6127397
+      value: 0.84677875
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Color.b
