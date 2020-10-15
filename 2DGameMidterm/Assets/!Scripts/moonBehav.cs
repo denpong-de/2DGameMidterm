@@ -5,10 +5,10 @@ using UnityEngine.Experimental.Rendering.Universal;
 
 public class moonBehav : MonoBehaviour
 {
-    Light2D moonLight;
- 
     public playerValue gameValues; //ScriptableObject
 
+    Light2D moonLight;
+ 
     // Start is called before the first frame update
     void Start()
     {
