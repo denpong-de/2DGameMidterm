@@ -21,12 +21,13 @@ public class playerValue : ScriptableObject
     public int easyToNormal;
 
     [Header("In Game price")]
+    public int healthPrice;
     public int extraLifePrice;
 
     [Header("In Game Value")]
     public int HealthPoint;
     public int coinCount;
-    public float score;
+    public float currentScore;
     public Vector3 BeforeDeadPosition;
     public bool playAgain;
 }
