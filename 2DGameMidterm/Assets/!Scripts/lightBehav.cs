@@ -16,7 +16,7 @@ public class lightBehav : MonoBehaviour
 
     IEnumerator LightDelay()
     {
-        float random = Random.Range(0, 2f);
+        float random = Random.Range(0, 4f);
         yield return new WaitForSeconds(random);
         Animator.enabled = true;
     }
