@@ -5182,6 +5182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: moon Light
       objectReference: {fileID: 0}
+    - target: {fileID: 721530933740161236, guid: 80314ec284696c84a89d1038de843542, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 721530933740161237, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_LocalPosition.x
       value: -9.81
@@ -5228,7 +5232,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Intensity
-      value: 0.4
+      value: 0.41
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Color.r
@@ -5236,7 +5240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Color.g
-      value: 0.72219443
+      value: 0.6127397
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_Color.b
@@ -5248,11 +5252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_PointLightOuterRadius
-      value: 22.24
+      value: 21.81
       objectReference: {fileID: 0}
     - target: {fileID: 721530933740161242, guid: 80314ec284696c84a89d1038de843542, type: 3}
       propertyPath: m_FalloffIntensity
-      value: 0.67
+      value: 0.08
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80314ec284696c84a89d1038de843542, type: 3}
