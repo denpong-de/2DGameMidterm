@@ -22,7 +22,7 @@ public class gameController : MonoBehaviour
     private void Start()
     {
         gameValues.coinCount = 0;
-        gameValues.score = 0;
+        gameValues.currentScore = 0;
 
         gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
         gameEvent.current.onEnemyTriggerEnter += OnHealthPointUpdate;
@@ -62,18 +62,18 @@ public class gameController : MonoBehaviour
         }
 
         //Store High Score.
-        gameValues.score = Mathf.Round(gameValues.score);
+        gameValues.currentScore = Mathf.Round(gameValues.currentScore);
 
         if (PlayerPrefs.HasKey("HighScore"))
         {
-            if(PlayerPrefs.GetFloat("HighScore") < gameValues.score)
+            if(PlayerPrefs.GetFloat("HighScore") < gameValues.currentScore)
             {
-                PlayerPrefs.SetFloat("HighScore", gameValues.score);
+                PlayerPrefs.SetFloat("HighScore", gameValues.currentScore);
             }
         }
         else
         {
-            PlayerPrefs.SetFloat("HighScore", gameValues.score);
+            PlayerPrefs.SetFloat("HighScore", gameValues.currentScore);
         }
 
         texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
@@ -84,8 +84,9 @@ public class gameController : MonoBehaviour
 
         resultCanv.gameObject.SetActive(true);
         texts[1].text = ("" + myCoin);
+
         //Not enough coin.
-        if (myCoin <= gameValues.extraLifePrice)
+        if ( alreadyExtraLife || myCoin <= gameValues.extraLifePrice )
         {
             buttons[0].interactable = false;
             texts[2].gameObject.SetActive(true);
@@ -105,12 +106,13 @@ public class gameController : MonoBehaviour
     //update Score
     private void scoreUpdate()
     {
-        gameValues.score += Time.deltaTime * gameValues.runSpeed;
-        texts[3].text = "Score : " + Mathf.Round(gameValues.score);
+        gameValues.currentScore += Time.deltaTime * gameValues.runSpeed;
+        texts[3].text = "Score : " + Mathf.Round(gameValues.currentScore);
     }
 
     //Button Behavior.
 
+    private bool alreadyExtraLife;
     public void extraLife()
     {
         PlayerPrefs.SetInt("MyCoin", myCoin - gameValues.extraLifePrice);
@@ -118,6 +120,7 @@ public class gameController : MonoBehaviour
         player.transform.position = gameValues.BeforeDeadPosition;
         gameValues.HealthPoint++;
         hearts[0].enabled = true;
+        alreadyExtraLife = true;
         Time.timeScale = 1;
         resultCanv.gameObject.SetActive(false);
     }

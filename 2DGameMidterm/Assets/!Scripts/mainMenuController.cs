@@ -68,11 +68,11 @@ public class mainMenuController : MonoBehaviour
 
     public void buyHealth()
     {
-        if(myCoin >= 15 && gameValues.HealthPoint < 5)
+        if(myCoin >= gameValues.healthPrice && gameValues.HealthPoint < 5)
         {
             gameValues.HealthPoint++;
             menuHearts[(gameValues.HealthPoint - 2)].gameObject.SetActive(true);
-            myCoin = myCoin - 15;
+            myCoin = myCoin - gameValues.healthPrice;
             myCoinTXT.text = ("" + myCoin);
         }
         else

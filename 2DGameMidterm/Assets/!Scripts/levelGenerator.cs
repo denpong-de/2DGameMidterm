@@ -13,12 +13,6 @@ public class levelGenerator : MonoBehaviour
     [SerializeField] private List<Transform> levelPartEasyList;
     [SerializeField] private List<Transform> levelPartNormalList;
 
-    private enum Difficulty
-    {
-        Easy,
-        Normal
-    }
-
     private Vector3 lastEndPosition;
     private int levelPartsSpawned;
 
@@ -52,8 +46,8 @@ public class levelGenerator : MonoBehaviour
         switch (getDifficulty())
         {
             default:
-            case Difficulty.Easy:   difficultyLevelPartList = levelPartEasyList;   break;
-            case Difficulty.Normal: difficultyLevelPartList = levelPartNormalList; break;
+            case 1:   difficultyLevelPartList = levelPartEasyList;   break;
+            case 2: difficultyLevelPartList = levelPartNormalList; break;
         }
 
         Transform chosenLevelPart = difficultyLevelPartList[UnityEngine.Random.Range(0, difficultyLevelPartList.Count)];
@@ -75,10 +69,16 @@ public class levelGenerator : MonoBehaviour
         return levelPartTransform;
     }
 
-    private Difficulty getDifficulty()
+    private int getDifficulty()
     {
-        if (levelPartsSpawned >= Level.easyToNormal) return Difficulty.Normal;
-        return Difficulty.Easy;
+        if (levelPartsSpawned >= Level.easyToNormal)
+        {
+            Level.difficultyIndex = 2;
+            return Level.difficultyIndex;
+        }
+
+        Level.difficultyIndex = 1;
+        return Level.difficultyIndex;
     }
 
     //Delete old level Part Method.
