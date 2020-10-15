@@ -1106,7 +1106,7 @@ Transform:
   m_Children:
   - {fileID: 103853335}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &519420033
 MonoBehaviour:
@@ -2696,8 +2696,7 @@ MonoBehaviour:
   - {fileID: 8968179793583778254, guid: c164653ac7b3ff742a695cefb07bf092, type: 3}
   - {fileID: 8968179793583778254, guid: d5d319dfebbb3ba46a7a1265c50c03f2, type: 3}
   levelPartNormalList:
-  - {fileID: 8968179793583778254, guid: bcfe2ac6b6b821245bdfd40f56de3491, type: 3}
-  - {fileID: 3872088046713671213, guid: 5bae3d1f320e9ad40a2158e7962ca60e, type: 3}
+  - {fileID: 8968179793583778254, guid: fcc2585fe16694048ba0f748022084e6, type: 3}
 --- !u!4 &737907157
 Transform:
   m_ObjectHideFlags: 0
@@ -2710,7 +2709,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765576479
 GameObject:
@@ -2947,7 +2946,7 @@ Transform:
   - {fileID: 34024077}
   - {fileID: 765576480}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1027656375 stripped
 Transform:
@@ -5319,7 +5318,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1623985305364405634, guid: fb800df4c8eda454891cc312c2845349, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1623985305364405634, guid: fb800df4c8eda454891cc312c2845349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5372,7 +5371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1760263198397438168, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1760263198397438168, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5389,6 +5388,10 @@ PrefabInstance:
     - target: {fileID: 1760263198397438171, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1760263198397438171, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2558837176242056589, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
       propertyPath: Canvas

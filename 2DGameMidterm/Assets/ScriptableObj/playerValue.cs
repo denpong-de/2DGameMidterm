@@ -10,6 +10,9 @@ public class playerValue : ScriptableObject
     [Range(0f, 5f)] public float fallMultiply;
     [Range(0f, 20f)] public float runSpeed;
 
+    [Header("Enamy Settings")]
+    [Range(0f, 5f)] public float spikeSpeed;
+
     [Header("Level Generator")]
     [Range(0f, 50f)] public float SpawnDistance;
 
