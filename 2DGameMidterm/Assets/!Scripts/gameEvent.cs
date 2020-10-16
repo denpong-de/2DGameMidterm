@@ -38,4 +38,5 @@ public class gameEvent : MonoBehaviour
             onEnemyTriggerEnter();
         }
     }
+
 }

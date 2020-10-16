@@ -23,7 +23,6 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
     // Start is called before the first frame update
     void Start()
     {
-        myButton = GetComponent<Button>();
 
         // Set interactivity to be dependent on the Placement’s status:
         myButton.interactable = Advertisement.IsReady(myPlacementId);
@@ -35,7 +34,6 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameId, true);
 
-        currentCoin = PlayerPrefs.GetInt("MyCoin");
     }
 
     // Implement a function for showing a rewarded video ad:
@@ -60,9 +58,10 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
         if (showResult == ShowResult.Finished)
         {
             // Reward the user for watching the ad to completion.
-            PlayerPrefs.SetInt("MyCoin",currentCoin + gameValues.rewardAdsPrice);
             currentCoin = PlayerPrefs.GetInt("MyCoin");
-            myCoinTXT.text = "" + currentCoin;
+            currentCoin = currentCoin + gameValues.rewardAdsPrice;
+            PlayerPrefs.SetInt("MyCoin", currentCoin);
+            StartCoroutine(updateMyCoin());
         }
         else if (showResult == ShowResult.Skipped)
         {
@@ -83,4 +82,14 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
     {
         // Optional actions to take when the end-users triggers an ad.
     }
+
+    IEnumerator updateMyCoin()
+    {
+        while ( myCoinTXT.enabled == false)
+        {
+            yield return new WaitForSeconds(0.5f);
+        }
+        myCoinTXT.text = "" + currentCoin;
+    }
+
 }
