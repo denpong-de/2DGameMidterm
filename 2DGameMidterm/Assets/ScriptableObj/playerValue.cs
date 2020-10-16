@@ -26,6 +26,7 @@ public class playerValue : ScriptableObject
     [Header("In Game price")]
     public int healthPrice;
     public int extraLifePrice;
+    public int rewardAdsPrice;
 
     [Header("In Game Value")]
     public int HealthPoint;

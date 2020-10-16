@@ -15,7 +15,6 @@ MonoBehaviour:
   jumpVelocity: 5.5
   fallMultiply: 2.8
   runSpeed: 5
-  fallSpeed: 5
   spikeSpeed: 5
   SpawnDistance: 30
   bgPropMultiplier: {x: 0.4, y: 0.1}
@@ -23,9 +22,10 @@ MonoBehaviour:
   easyToNormal: 10
   healthPrice: 15
   extraLifePrice: 100
-  HealthPoint: 1
-  coinCount: 17
-  currentScore: 292.6438
-  difficultyIndex: 2
-  BeforeDeadPosition: {x: 273.72397, y: 0, z: 0}
+  rewardAdsPrice: 100
+  HealthPoint: 5
+  coinCount: 0
+  currentScore: 6.9055247
+  difficultyIndex: 1
+  BeforeDeadPosition: {x: 1, y: 0, z: 0}
   playAgain: 0
