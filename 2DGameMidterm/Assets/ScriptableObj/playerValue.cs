@@ -26,6 +26,7 @@ public class playerValue : ScriptableObject
     [Header("In Game price")]
     public int healthPrice;
     public int extraLifePrice;
+    public int rewardAdsPrice;
 
     [Header("In Game Value")]
     public int HealthPoint;
@@ -33,5 +34,6 @@ public class playerValue : ScriptableObject
     public float currentScore;
     public int difficultyIndex;
     public Vector3 BeforeDeadPosition;
+    public string BeforeDeadPlatform;
     public bool playAgain;
 }

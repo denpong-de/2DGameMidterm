@@ -57,7 +57,6 @@ public class mainMenuController : MonoBehaviour
 
     public void startGame()
     {
-        PlayerPrefs.SetInt("MyCoin", myCoin);
         SceneManager.LoadScene(1);
     }
 
@@ -68,11 +67,14 @@ public class mainMenuController : MonoBehaviour
 
     public void buyHealth()
     {
-        if(myCoin >= gameValues.healthPrice && gameValues.HealthPoint < 5)
+        myCoin = PlayerPrefs.GetInt("MyCoin");
+
+        if (myCoin >= gameValues.healthPrice && gameValues.HealthPoint < 5)
         {
             gameValues.HealthPoint++;
             menuHearts[(gameValues.HealthPoint - 2)].gameObject.SetActive(true);
             myCoin = myCoin - gameValues.healthPrice;
+            PlayerPrefs.SetInt("MyCoin", myCoin);
             myCoinTXT.text = ("" + myCoin);
         }
         else
@@ -101,6 +103,6 @@ public class mainMenuController : MonoBehaviour
         transitionAnimator.SetTrigger("isBuying");
 
         buyFade.gameObject.SetActive(true);
-        myCoinTXT.text = ("" + myCoin);
+        myCoinTXT.text = "" + myCoin;
     }
 }
