@@ -1306,6 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameValues: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
+  myCoinTXT: {fileID: 0}
   myPlacementId: rewardedVideo
 --- !u!1 &634601548
 GameObject:
@@ -2582,7 +2583,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1223290801
 RectTransform:
   m_ObjectHideFlags: 0

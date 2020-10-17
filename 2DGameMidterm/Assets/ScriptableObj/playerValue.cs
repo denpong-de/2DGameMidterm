@@ -34,5 +34,6 @@ public class playerValue : ScriptableObject
     public float currentScore;
     public int difficultyIndex;
     public Vector3 BeforeDeadPosition;
+    public string BeforeDeadPlatform;
     public bool playAgain;
 }
