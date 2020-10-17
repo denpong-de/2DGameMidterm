@@ -22,20 +22,6 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
 
     private int currentCoin;
 
-    //void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //        DontDestroyOnLoad(this);
-    //    }
-    //    else if (this != Instance)
-    //    {
-    //        Debug.Log("Destroying extra GM");
-    //        Destroy(this.gameObject);
-    //    }
-    //}
-
     // Start is called before the first frame update
     void Start()
     {
