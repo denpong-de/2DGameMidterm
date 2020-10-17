@@ -23,9 +23,12 @@ MonoBehaviour:
   healthPrice: 15
   extraLifePrice: 100
   rewardAdsPrice: 100
-  HealthPoint: 5
+  birdPosition:
+  - {x: 65, y: -10}
+  HealthPoint: 0
   coinCount: 0
-  currentScore: 6.9055247
+  currentScore: 64.10345
   difficultyIndex: 1
   BeforeDeadPosition: {x: 1, y: 0, z: 0}
+  BeforeDeadPlatform: 
   playAgain: 0

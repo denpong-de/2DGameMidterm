@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
+using System.Runtime.CompilerServices;
 
 public class birdBehav : MonoBehaviour
 {
-
+    public playerValue gameValues; //ScriptableObject
     public Transform target;
 
     public float speed;
@@ -83,5 +84,38 @@ public class birdBehav : MonoBehaviour
         {
             Bird.localScale = new Vector3(1f, 1f, 1f);
         }
+
+        moveToNewPosition();
+    }
+
+    private int positionIndex = 0;
+    private void moveToNewPosition()
+    {
+
+        var relativePoint = transform.InverseTransformPoint(target.position);
+
+        if (relativePoint.x < 0.0)
+        {
+            print("Object is to the left");
+        }  
+        else if (relativePoint.x > 0.0)
+        {
+            print("Object is to the right");
+            if (Vector3.Distance(this.transform.position, target.transform.position) > gameValues.birdDistance)
+            {
+                this.transform.position = gameValues.birdPosition[positionIndex];
+                positionIndex++;
+            }
+        }
+        else
+        {
+            print("Object is directly ahead");
+        }
+            
+        //if (Vector3.Distance(this.transform.position, target.transform.position) > 20)
+        //{
+        //    this.transform.position = gameValues.birdPosition[positionIndex];
+        //    positionIndex++;
+        //}   
     }
 }

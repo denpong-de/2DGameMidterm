@@ -28,6 +28,10 @@ public class playerValue : ScriptableObject
     public int extraLifePrice;
     public int rewardAdsPrice;
 
+    [Header("Bird Settings")]
+    public int birdDistance;
+    public Vector2[] birdPosition;
+
     [Header("In Game Value")]
     public int HealthPoint;
     public int coinCount;
