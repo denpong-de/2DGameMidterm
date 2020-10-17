@@ -12,17 +12,34 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
     private string gameId = "3866355";
 #endif
 
+    public static rewardAds Instance;
+
     public playerValue gameValues; //ScriptableObject
 
-    public Button myButton;
+    Button myButton;
     public Text myCoinTXT;
     public string myPlacementId = "rewardedVideo";
 
     private int currentCoin;
 
+    //void Awake()
+    //{
+    //    if (Instance == null)
+    //    {
+    //        Instance = this;
+    //        DontDestroyOnLoad(this);
+    //    }
+    //    else if (this != Instance)
+    //    {
+    //        Debug.Log("Destroying extra GM");
+    //        Destroy(this.gameObject);
+    //    }
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
+        myButton = GameObject.Find("rewardAds Button").GetComponent<Button>();
 
         // Set interactivity to be dependent on the Placement’s status:
         myButton.interactable = Advertisement.IsReady(myPlacementId);
@@ -33,11 +50,10 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
         // Initialize the Ads listener and service:
         Advertisement.AddListener(this);
         Advertisement.Initialize(gameId, true);
-
     }
 
     // Implement a function for showing a rewarded video ad:
-    void ShowRewardedVideo()
+    public void ShowRewardedVideo()
     {
         Advertisement.Show(myPlacementId);
     }
@@ -45,7 +61,6 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
     // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsReady(string placementId)
     {
-        // If the ready Placement is rewarded, activate the button: 
         if (placementId == myPlacementId)
         {
             myButton.interactable = true;
@@ -61,7 +76,7 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
             currentCoin = PlayerPrefs.GetInt("MyCoin");
             currentCoin = currentCoin + gameValues.rewardAdsPrice;
             PlayerPrefs.SetInt("MyCoin", currentCoin);
-            StartCoroutine(updateMyCoin());
+            myCoinTXT.text = "" + currentCoin;
         }
         else if (showResult == ShowResult.Skipped)
         {
@@ -83,13 +98,8 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
         // Optional actions to take when the end-users triggers an ad.
     }
 
-    IEnumerator updateMyCoin()
+    void OnDestroy()
     {
-        while ( myCoinTXT.enabled == false)
-        {
-            yield return new WaitForSeconds(0.5f);
-        }
-        myCoinTXT.text = "" + currentCoin;
+        Advertisement.RemoveListener(this);
     }
-
 }
