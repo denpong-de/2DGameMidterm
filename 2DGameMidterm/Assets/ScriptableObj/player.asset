@@ -16,7 +16,7 @@ MonoBehaviour:
   fallMultiply: 2.8
   runSpeed: 5
   spikeSpeed: 5
-  SpawnDistance: 30
+  SpawnDistance: 50
   bgPropMultiplier: {x: 0.4, y: 0.1}
   bgMultiplier: {x: 0.6, y: 0.3}
   easyToNormal: 10
@@ -24,11 +24,11 @@ MonoBehaviour:
   extraLifePrice: 100
   rewardAdsPrice: 100
   dungeon1Price: 500
-  HealthPoint: 1
-  coinCount: 0
-  currentScore: 12
+  HealthPoint: 0
+  coinCount: 3
+  currentScore: 59.79966
   difficultyIndex: 1
-  BeforeDeadPosition: {x: 1, y: 0, z: 0}
+  BeforeDeadPosition: {x: 60.031002, y: 0, z: 0}
   BeforeDeadPlatform: 
   lastSceneIndex: 1
   playAgain: 0

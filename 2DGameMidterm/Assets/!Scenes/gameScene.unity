@@ -468,7 +468,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &248838169 stripped
 Transform:
@@ -882,7 +882,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &478610763
 MonoBehaviour:
@@ -898,7 +898,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameValues: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
   player: {fileID: 114716505}
-  endGamePosition: {fileID: 0}
   resultCanv: {fileID: 2120742684}
   texts:
   - {fileID: 875643191}
@@ -914,6 +913,8 @@ MonoBehaviour:
   - {fileID: 1057895742}
   - {fileID: 967505252}
   - {fileID: 1908635411}
+  endGamePosition: {fileID: 0}
+  clearCanv: {fileID: 0}
 --- !u!114 &478610764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2704,14 +2705,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: {fileID: 11400000, guid: aa07b6d02306822439c53c61a20cb914, type: 2}
-  pfTesting: {fileID: 0}
+  pfTesting: {fileID: 8968179793583778254, guid: fcc2585fe16694048ba0f748022084e6, type: 3}
   levelPart_Start: {fileID: 656337098}
   player: {fileID: 36671930}
   levelPartEasyList:
   - {fileID: 8968179793583778254, guid: c164653ac7b3ff742a695cefb07bf092, type: 3}
+  - {fileID: 8968179793583778254, guid: afabceb89d0cfdf48bc1b8ac51bd5557, type: 3}
+  - {fileID: 8968179793583778254, guid: de4fceb47d23e574fa4e3c4d6f1fa463, type: 3}
   - {fileID: 8968179793583778254, guid: d5d319dfebbb3ba46a7a1265c50c03f2, type: 3}
+  - {fileID: 8968179793583778254, guid: 51f428e4786156c408d42bb44c33dad6, type: 3}
+  - {fileID: 3872088046713671213, guid: ded68493c15be4e498dd2a3df16dbb07, type: 3}
+  - {fileID: 3872088046713671213, guid: b9dc7ba9e481a0d4f86237465220d2f2, type: 3}
+  - {fileID: 8968179793583778254, guid: 6de3e02c55cd01c4ca71259d6fd3fbf1, type: 3}
+  - {fileID: 8968179793583778254, guid: 4cac8f08594911b43b61e1378c32aae3, type: 3}
+  - {fileID: 8968179793583778254, guid: 4a4c2c3c38743af46b05fd7ebb6fabe2, type: 3}
+  - {fileID: 8968179793583778254, guid: 8be27a9297a47d24f99a1053ea89ae58, type: 3}
+  - {fileID: 8968179793583778254, guid: bcebb492d2f20bb47965be7ba8df5a27, type: 3}
   levelPartNormalList:
+  - {fileID: 8968179793583778254, guid: fa9d22cd1078f2c4a8386a8b58b7a34a, type: 3}
+  - {fileID: 8968179793583778254, guid: d796a8205070f6244ad02556bbb33bde, type: 3}
+  - {fileID: 8968179793583778254, guid: 4e758b0bc20c7244fafee629828f1316, type: 3}
+  - {fileID: 8968179793583778254, guid: 060f8de2a7e54ad4081e0192c5ffc7c9, type: 3}
+  - {fileID: 8968179793583778254, guid: 0896c02d956eef1428891a422359a0ff, type: 3}
+  - {fileID: 8968179793583778254, guid: 15ea29213abec23479f56e1354ba42dd, type: 3}
+  - {fileID: 8968179793583778254, guid: 81a200ff4806d704ab09b42d22720d7f, type: 3}
+  - {fileID: 8968179793583778254, guid: 1a752a2aaac775f4fadc92b7e5f62402, type: 3}
+  - {fileID: 8968179793583778254, guid: e020044c28667834ea716c7d6a0b02a8, type: 3}
+  - {fileID: 8968179793583778254, guid: 91e91b32b3f9fc34082d94020b2df6c8, type: 3}
+  - {fileID: 8968179793583778254, guid: 5215c1e38eea5e14bac1e695489ab87e, type: 3}
   - {fileID: 8968179793583778254, guid: fcc2585fe16694048ba0f748022084e6, type: 3}
+  - {fileID: 8968179793583778254, guid: 3278482e7e3306c41a79233bd29d425f, type: 3}
 --- !u!4 &737907157
 Transform:
   m_ObjectHideFlags: 0
@@ -2724,7 +2747,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &765576479
 GameObject:
