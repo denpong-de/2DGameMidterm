@@ -9,10 +9,13 @@ public class gameController : MonoBehaviour
     public playerValue gameValues; //ScriptableObject
 
     public GameObject player;
+    public Transform endGamePosition;
     public Canvas resultCanv;
     public Text[] texts;
     public Button[] buttons;
     public Image[] hearts;
+
+    private int currentScene;
 
     private void Awake()
     {
@@ -24,15 +27,22 @@ public class gameController : MonoBehaviour
         gameValues.coinCount = 0;
         gameValues.currentScore = 0;
 
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+
         gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
         gameEvent.current.onEnemyTriggerEnter += OnHealthPointUpdate;
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
         gameEvent.current.onRewardAdEnter += OnExtraLifeUpdate;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         scoreUpdate();
+
+        if(currentScene == 2)
+        {
+            dungeonBehav();
+        }
     }
 
     //onCoinTriggerEnter listener.
@@ -77,34 +87,27 @@ public class gameController : MonoBehaviour
             PlayerPrefs.SetFloat("HighScore", gameValues.currentScore);
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
-        }
-        
-        //Store and show MyCoin.
+        //Store MyCoin.
         PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
         myCoin = PlayerPrefs.GetInt("MyCoin");
 
         resultCanv.gameObject.SetActive(true);
-        if (SceneManager.GetActiveScene().buildIndex == 1)
-        {
-            texts[1].text = ("" + myCoin);
-        }
 
-        //Not enough coin.
-        if (SceneManager.GetActiveScene().buildIndex == 1)
+        if (currentScene == 1)
         {
+            //Show High Score.
+            texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
+
+            //Show My Coin.
+            texts[1].text = ("" + myCoin);
+
+            //Not enough coin to buy Extra Life.
             OnExtraLifeUpdate();
         }
     }
 
     void OnExtraLifeUpdate()
     {
-        Debug.Log("Event Enter");
-        Debug.Log(alreadyExtraLife);
-        Debug.Log(myCoin);
-
         myCoin = PlayerPrefs.GetInt("MyCoin");
 
         if (alreadyExtraLife || myCoin < gameValues.extraLifePrice)
@@ -132,8 +135,25 @@ public class gameController : MonoBehaviour
     //update Score
     private void scoreUpdate()
     {
-        gameValues.currentScore += Time.deltaTime * gameValues.runSpeed;
-        texts[3].text = "Score : " + Mathf.Round(gameValues.currentScore);
+        if(currentScene == 1)
+        {
+            gameValues.currentScore += Time.deltaTime * gameValues.runSpeed;
+            texts[3].text = "Score : " + Mathf.Round(gameValues.currentScore);
+        }
+        else
+        {
+            texts[3].text = "distance : " + Mathf.Round(endGamePosition.position.x - player.transform.position.x);
+        }
+    }
+
+    //dungeon Behavior
+    private void dungeonBehav()
+    {
+        if(endGamePosition.position.x - player.transform.position.x <= 0)
+        {
+            gameEvent.current.RespawnTriggerEnter();
+            PlayerPrefs.SetInt("challengePass" + gameValues.lastSceneIndex, 1);
+        }
     }
 
     //Button Behavior.

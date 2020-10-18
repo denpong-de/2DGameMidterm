@@ -54,8 +54,6 @@ public class birdBehav : MonoBehaviour
         }
         if (currentWayPoint >= Path.vectorPath.Count)
         {
-            //Rigidbody.AddForce(Vector2.left * atkSpeed);
-            //Rigidbody.AddForce(Vector2.up * atkSpeed * 2);
             reachedEndOfPath = true;
             return;
         }
@@ -78,11 +76,11 @@ public class birdBehav : MonoBehaviour
 
         if (force.x >= 0.01f)
         {
-            Bird.localScale = new Vector3(-1f, 1f, 1f);
+            Bird.localScale = new Vector3(1f, 1f, 1f);
         }
         else if (force.x <= -0.01f)
         {
-            Bird.localScale = new Vector3(1f, 1f, 1f);
+            Bird.localScale = new Vector3(-1f, 1f, 1f);
         }
 
         moveToNewPosition();
@@ -96,26 +94,22 @@ public class birdBehav : MonoBehaviour
 
         if (relativePoint.x < 0.0)
         {
-            print("Object is to the left");
+
         }  
         else if (relativePoint.x > 0.0)
         {
-            print("Object is to the right");
             if (Vector3.Distance(this.transform.position, target.transform.position) > gameValues.birdDistance)
             {
-                this.transform.position = gameValues.birdPosition[positionIndex];
-                positionIndex++;
+                if(positionIndex <= gameValues.birdPosition.Length)
+                {
+                    this.transform.position = gameValues.birdPosition[positionIndex];
+                    positionIndex++;
+                }
             }
         }
         else
         {
-            print("Object is directly ahead");
-        }
-            
-        //if (Vector3.Distance(this.transform.position, target.transform.position) > 20)
-        //{
-        //    this.transform.position = gameValues.birdPosition[positionIndex];
-        //    positionIndex++;
-        //}   
+           
+        } 
     }
 }
