@@ -14,7 +14,7 @@ public class mainMenuController : MonoBehaviour
 
     public GameObject player;
     public GameObject buyTransition;
-    public Canvas buyFade;
+    public Canvas buyFade, dunSelectFade;
     public Text myCoinTXT;
     public Image[] menuHearts;
 
@@ -35,7 +35,13 @@ public class mainMenuController : MonoBehaviour
 
         if (gameValues.playAgain)
         {
-            startBuying();
+            switch (gameValues.lastSceneIndex)
+            {
+                default: 
+                case 1: startBuying(); break;
+                case 2: selectDun(); break;
+            }
+ 
             gameValues.playAgain = false;
         }
     }
@@ -53,11 +59,18 @@ public class mainMenuController : MonoBehaviour
     public void Play()
     {
         StartCoroutine(playerRunning());
+        gameValues.lastSceneIndex = 1;
+    }
+
+    public void Dungeon()
+    {
+        StartCoroutine(playerRunningDun());
+        gameValues.lastSceneIndex = 2;
     }
 
     public void startGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(gameValues.lastSceneIndex);
     }
 
     public void Quit()
@@ -105,4 +118,27 @@ public class mainMenuController : MonoBehaviour
         buyFade.gameObject.SetActive(true);
         myCoinTXT.text = "" + myCoin;
     }
+
+    IEnumerator playerRunningDun()
+    {
+        //Running Animation Start.
+        playerAnimator.SetTrigger("isStart");
+        isStart = true;
+
+        yield return new WaitForSeconds(1.1f);
+
+        //Running Animation Stop.
+        isStart = false;
+        Rigidbody.velocity = Vector3.zero;
+
+        selectDun();
+    }
+
+    private void selectDun()
+    {
+        transitionAnimator.SetTrigger("isBuying");
+
+        dunSelectFade.gameObject.SetActive(true);
+    }
+
 }

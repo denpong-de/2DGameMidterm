@@ -128,6 +128,7 @@ public class gameController : MonoBehaviour
     public void restart()
     {
         gameValues.playAgain = true;
+        gameValues.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }

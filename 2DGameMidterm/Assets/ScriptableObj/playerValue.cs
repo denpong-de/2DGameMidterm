@@ -28,10 +28,6 @@ public class playerValue : ScriptableObject
     public int extraLifePrice;
     public int rewardAdsPrice;
 
-    [Header("Bird Settings")]
-    public int birdDistance;
-    public Vector2[] birdPosition;
-
     [Header("In Game Value")]
     public int HealthPoint;
     public int coinCount;
@@ -39,5 +35,10 @@ public class playerValue : ScriptableObject
     public int difficultyIndex;
     public Vector3 BeforeDeadPosition;
     public string BeforeDeadPlatform;
+    public int lastSceneIndex;
     public bool playAgain;
+
+    [Header("Bird Settings")]
+    [Range(0f, 20f)] public int birdDistance;
+    public Vector2[] birdPosition;
 }
