@@ -19,6 +19,7 @@ public class gameAnalytics : MonoBehaviour
             "LevelDied",
             new Dictionary<string, object>
             {
+                {"Game Mode", gameValues.lastSceneIndex},
                 {"Dificulty", gameValues.difficultyIndex},
                 {"Coin Count", gameValues.coinCount},
                 {"Score", gameValues.currentScore },

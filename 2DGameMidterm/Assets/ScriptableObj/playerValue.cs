@@ -19,6 +19,7 @@ public class playerValue : ScriptableObject
     [Header("BG Setting")]
     public Vector2 bgPropMultiplier;
     public Vector2 bgMultiplier;
+    public Vector2 bgXLMultiplier;
 
     [Header("Difficult Value")]
     public int easyToNormal;
@@ -27,6 +28,7 @@ public class playerValue : ScriptableObject
     public int healthPrice;
     public int extraLifePrice;
     public int rewardAdsPrice;
+    public int dungeon1Price;
 
     [Header("In Game Value")]
     public int HealthPoint;
@@ -35,5 +37,10 @@ public class playerValue : ScriptableObject
     public int difficultyIndex;
     public Vector3 BeforeDeadPosition;
     public string BeforeDeadPlatform;
+    public int lastSceneIndex;
     public bool playAgain;
+
+    [Header("Bird Settings")]
+    [Range(0f, 20f)] public int birdDistance;
+    public Vector2[] birdPosition;
 }

@@ -14,6 +14,12 @@ public class gameController : MonoBehaviour
     public Button[] buttons;
     public Image[] hearts;
 
+    //dungeon.
+    public Transform endGamePosition;
+    public Canvas clearCanv;
+
+    private int currentScene;
+
     private void Awake()
     {
         healthBarSetup();
@@ -24,14 +30,22 @@ public class gameController : MonoBehaviour
         gameValues.coinCount = 0;
         gameValues.currentScore = 0;
 
+        currentScene = SceneManager.GetActiveScene().buildIndex;
+
         gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
         gameEvent.current.onEnemyTriggerEnter += OnHealthPointUpdate;
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
+        gameEvent.current.onRewardAdEnter += OnExtraLifeUpdate;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         scoreUpdate();
+
+        if(currentScene == 2)
+        {
+            dungeonBehav();
+        }
     }
 
     //onCoinTriggerEnter listener.
@@ -76,20 +90,39 @@ public class gameController : MonoBehaviour
             PlayerPrefs.SetFloat("HighScore", gameValues.currentScore);
         }
 
-        texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
-
-        //Store and show MyCoin.
+        //Store MyCoin.
         PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
         myCoin = PlayerPrefs.GetInt("MyCoin");
 
         resultCanv.gameObject.SetActive(true);
-        texts[1].text = ("" + myCoin);
 
-        //Not enough coin.
-        if ( alreadyExtraLife || myCoin <= gameValues.extraLifePrice )
+        if (currentScene == 1)
+        {
+            //Show High Score.
+            texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
+
+            //Show My Coin.
+            texts[1].text = ("" + myCoin);
+
+            //Not enough coin to buy Extra Life.
+            OnExtraLifeUpdate();
+        }
+    }
+
+
+    void OnExtraLifeUpdate()
+    {
+        myCoin = PlayerPrefs.GetInt("MyCoin");
+
+        if (alreadyExtraLife || myCoin < gameValues.extraLifePrice)
         {
             buttons[0].interactable = false;
             texts[2].gameObject.SetActive(true);
+        }
+        else
+        {
+            buttons[0].interactable = true;
+            texts[2].gameObject.SetActive(false);
         }
     }
 
@@ -106,8 +139,33 @@ public class gameController : MonoBehaviour
     //update Score
     private void scoreUpdate()
     {
-        gameValues.currentScore += Time.deltaTime * gameValues.runSpeed;
-        texts[3].text = "Score : " + Mathf.Round(gameValues.currentScore);
+        if(currentScene == 1)
+        {
+            gameValues.currentScore += Time.deltaTime * gameValues.runSpeed;
+            texts[3].text = "Score : " + Mathf.Round(gameValues.currentScore);
+        }
+        else
+        {
+            texts[3].text = "distance : " + Mathf.Round(endGamePosition.position.x - player.transform.position.x);
+        }
+    }
+
+    //dungeon Behavior
+    private void dungeonBehav()
+    {
+        if(endGamePosition.position.x - player.transform.position.x <= 0)
+        {
+            Time.timeScale = 0;
+            clearCanv.gameObject.SetActive(true);
+
+            if (!PlayerPrefs.HasKey("challengePass2"))
+            {
+                myCoin = PlayerPrefs.GetInt("MyCoin");
+                PlayerPrefs.SetInt("MyCoin", myCoin + gameValues.dungeon1Price);
+            }
+
+            PlayerPrefs.SetInt("challengePass" + gameValues.lastSceneIndex, 1);
+        }
     }
 
     //Button Behavior.
@@ -128,6 +186,7 @@ public class gameController : MonoBehaviour
     public void restart()
     {
         gameValues.playAgain = true;
+        gameValues.lastSceneIndex = SceneManager.GetActiveScene().buildIndex;
         Time.timeScale = 1;
         SceneManager.LoadScene(0);
     }
