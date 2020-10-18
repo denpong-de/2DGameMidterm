@@ -17,6 +17,8 @@ public class mainMenuController : MonoBehaviour
     public Canvas buyFade, dunSelectFade;
     public Text myCoinTXT;
     public Image[] menuHearts;
+    public Image bannerImages;
+    public Sprite bannerClear;
 
     private bool isStart;
     private int myCoin;
@@ -138,6 +140,10 @@ public class mainMenuController : MonoBehaviour
         transitionAnimator.SetTrigger("isBuying");
 
         dunSelectFade.gameObject.SetActive(true);
-    }
 
+        if (PlayerPrefs.HasKey("challengePass2"))
+        {
+            bannerImages.sprite = bannerClear;
+        }
+    }
 }

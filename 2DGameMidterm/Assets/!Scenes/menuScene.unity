@@ -1105,6 +1105,8 @@ MonoBehaviour:
   - {fileID: 19717030}
   - {fileID: 1896150541}
   - {fileID: 337330564}
+  bannerImages: {fileID: 515400214}
+  bannerClear: {fileID: 21300000, guid: f3703f4341d5e0041ae40cdb782213da, type: 3}
 --- !u!4 &473091042
 Transform:
   m_ObjectHideFlags: 0
@@ -1189,7 +1191,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 272e2dc3b9c41fd46ad8610286d48753, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3871,7 +3873,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a81de8265a0a32048aa78a3cd556a3b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4263,7 +4265,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a81de8265a0a32048aa78a3cd556a3b8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

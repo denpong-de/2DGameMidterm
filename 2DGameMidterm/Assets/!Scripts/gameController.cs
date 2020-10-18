@@ -9,11 +9,14 @@ public class gameController : MonoBehaviour
     public playerValue gameValues; //ScriptableObject
 
     public GameObject player;
-    public Transform endGamePosition;
     public Canvas resultCanv;
     public Text[] texts;
     public Button[] buttons;
     public Image[] hearts;
+
+    //dungeon.
+    public Transform endGamePosition;
+    public Canvas clearCanv;
 
     private int currentScene;
 
@@ -106,6 +109,7 @@ public class gameController : MonoBehaviour
         }
     }
 
+
     void OnExtraLifeUpdate()
     {
         myCoin = PlayerPrefs.GetInt("MyCoin");
@@ -151,7 +155,15 @@ public class gameController : MonoBehaviour
     {
         if(endGamePosition.position.x - player.transform.position.x <= 0)
         {
-            gameEvent.current.RespawnTriggerEnter();
+            Time.timeScale = 0;
+            clearCanv.gameObject.SetActive(true);
+
+            if (!PlayerPrefs.HasKey("challengePass2"))
+            {
+                myCoin = PlayerPrefs.GetInt("MyCoin");
+                PlayerPrefs.SetInt("MyCoin", myCoin + gameValues.dungeon1Price);
+            }
+
             PlayerPrefs.SetInt("challengePass" + gameValues.lastSceneIndex, 1);
         }
     }
