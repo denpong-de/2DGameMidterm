@@ -26,9 +26,9 @@ public class player : MonoBehaviour
 
     //Jump System.
 
-    public void pressJump(InputAction.CallbackContext context)
+    public void pressJump()
     {
-        if(context.performed == true && canJump == true)
+        if(canJump == true)
         {      
             Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
             canJump = false;
