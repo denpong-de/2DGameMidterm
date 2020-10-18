@@ -17,20 +17,22 @@ MonoBehaviour:
   runSpeed: 5
   spikeSpeed: 5
   SpawnDistance: 50
-  bgPropMultiplier: {x: 0.4, y: 0.1}
-  bgMultiplier: {x: 0.6, y: 0.3}
+  bgPropMultiplier: {x: 0.6, y: 0.3}
+  bgMultiplier: {x: 0.8, y: 0.5}
+  cloudMultiplier: {x: 0.2, y: 0.05}
+  bgXLMultiplier: {x: 0.4, y: 0.1}
   easyToNormal: 10
   healthPrice: 15
   extraLifePrice: 100
   rewardAdsPrice: 100
   dungeon1Price: 500
-  HealthPoint: 0
-  coinCount: 3
-  currentScore: 59.79966
-  difficultyIndex: 1
-  BeforeDeadPosition: {x: 60.031002, y: 0, z: 0}
+  HealthPoint: 1
+  coinCount: 0
+  currentScore: 0
+  difficultyIndex: 2
+  BeforeDeadPosition: {x: 1, y: 0, z: 0}
   BeforeDeadPlatform: 
-  lastSceneIndex: 1
+  lastSceneIndex: 2
   playAgain: 0
   birdDistance: 12
   birdPosition:

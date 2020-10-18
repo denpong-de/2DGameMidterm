@@ -19,6 +19,7 @@ public class playerValue : ScriptableObject
     [Header("BG Setting")]
     public Vector2 bgPropMultiplier;
     public Vector2 bgMultiplier;
+    public Vector2 bgXLMultiplier;
 
     [Header("Difficult Value")]
     public int easyToNormal;

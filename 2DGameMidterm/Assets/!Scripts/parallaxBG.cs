@@ -8,7 +8,9 @@ public class parallaxBG : MonoBehaviour
 
     [SerializeField] private Transform bgProp;
     [SerializeField] private Transform bg;
- 
+    [SerializeField] private Transform bgXL;
+    [SerializeField] private Transform cloud;
+
     private Transform cameraTransform;
     private Vector3 cameraPosition;
     private Vector3 deltaMovement;
@@ -27,11 +29,15 @@ public class parallaxBG : MonoBehaviour
 
         objParallax(bgProp, ParallaxBG.bgPropMultiplier);
         objParallax(bg, ParallaxBG.bgMultiplier);
+        objParallax(cloud, ParallaxBG.bgXLMultiplier);
+        objParallax(bgXL, ParallaxBG.bgXLMultiplier);
 
         cameraPosition = cameraTransform.position;
 
         infiniteLevel(bg);
         infiniteLevel(bgProp);
+        infiniteLevel(cloud);
+        infiniteLevel(bgXL);
     }
 
     private void objParallax(Transform obj, Vector2 Multiplier)

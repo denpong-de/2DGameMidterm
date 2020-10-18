@@ -100,7 +100,7 @@ public class birdBehav : MonoBehaviour
         {
             if (Vector3.Distance(this.transform.position, target.transform.position) > gameValues.birdDistance)
             {
-                if(positionIndex <= gameValues.birdPosition.Length)
+                if(positionIndex < gameValues.birdPosition.Length)
                 {
                     this.transform.position = gameValues.birdPosition[positionIndex];
                     positionIndex++;
