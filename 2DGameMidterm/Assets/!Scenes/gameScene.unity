@@ -4658,6 +4658,14 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5649542070221881005, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: Mobile
+      objectReference: {fileID: 0}
+    - target: {fileID: 5649542070221881005, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pressJump
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb450e0465c20048afb2afcb6a74063, type: 3}
 --- !u!1001 &3023661417329280124
