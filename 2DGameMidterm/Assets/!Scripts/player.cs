@@ -10,6 +10,8 @@ public class player : MonoBehaviour
     Rigidbody2D Rigidbody;
     Animator Animator;
 
+    public AudioClip[] audioClips;
+
     void Awake()
     {
         Rigidbody = GetComponent<Rigidbody2D>();
@@ -31,6 +33,7 @@ public class player : MonoBehaviour
             Rigidbody.AddForce(Vector2.up * Player.jumpVelocity, ForceMode2D.Impulse);
             canJump = false;
             Animator.SetBool("isJump", true);
+            AudioSource.PlayClipAtPoint(audioClips[0], this.transform.position);
         }    
     }
 
@@ -62,13 +65,15 @@ public class player : MonoBehaviour
         {
             Player.coinCount++;
             gameEvent.current.CoinTriggerEnter();
+            AudioSource.PlayClipAtPoint(audioClips[1], collision.transform.position);
             Destroy(collision.gameObject);
         }
         if (collision.tag == "enemy")
         {
             Player.HealthPoint--;
 
-            if(Player.HealthPoint <= 0)
+            AudioSource.PlayClipAtPoint(audioClips[2], collision.transform.position);
+            if (Player.HealthPoint <= 0)
             {
                 gameEvent.current.RespawnTriggerEnter();
             }

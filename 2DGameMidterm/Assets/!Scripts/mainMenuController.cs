@@ -41,7 +41,6 @@ public class mainMenuController : MonoBehaviour
                 case 1: startBuying(); break;
                 case 2: selectDun(); break;
             }
- 
             gameValues.playAgain = false;
         }
     }
