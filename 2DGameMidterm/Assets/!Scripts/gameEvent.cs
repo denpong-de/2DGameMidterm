@@ -39,4 +39,13 @@ public class gameEvent : MonoBehaviour
         }
     }
 
+    public Action onRewardAdEnter;
+    public void RewardAdEnter()
+    {
+        if(onRewardAdEnter != null)
+        {
+            onRewardAdEnter();
+        }
+    }
+
 }

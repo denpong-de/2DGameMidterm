@@ -44,6 +44,11 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
         Advertisement.Show(myPlacementId);
     }
 
+    public void ShowRewardedVideoInGame()
+    {
+        Advertisement.Show(myPlacementId);
+    }
+
     // Implement IUnityAdsListener interface methods:
     public void OnUnityAdsReady(string placementId)
     {
@@ -63,6 +68,7 @@ public class rewardAds : MonoBehaviour, IUnityAdsListener
             currentCoin = currentCoin + gameValues.rewardAdsPrice;
             PlayerPrefs.SetInt("MyCoin", currentCoin);
             myCoinTXT.text = "" + currentCoin;
+            gameEvent.current.RewardAdEnter();
         }
         else if (showResult == ShowResult.Skipped)
         {

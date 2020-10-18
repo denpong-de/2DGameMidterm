@@ -23,7 +23,7 @@ public class birdBehav : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Seeker = GetComponent<Seeker>();
+        Seeker = this.GetComponent<Seeker>();
         Rigidbody = GetComponent<Rigidbody2D>();
         InvokeRepeating("updatePath", 0.1f, 0.1f);
     }

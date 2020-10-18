@@ -27,6 +27,7 @@ public class gameController : MonoBehaviour
         gameEvent.current.onCoinTriggerEnter += OnCoinCountUpdate;
         gameEvent.current.onEnemyTriggerEnter += OnHealthPointUpdate;
         gameEvent.current.onRespawnTriggerEnter += OnResultScreenOpen;
+        gameEvent.current.onRewardAdEnter += OnExtraLifeUpdate;
     }
 
     private void Update()
@@ -76,20 +77,45 @@ public class gameController : MonoBehaviour
             PlayerPrefs.SetFloat("HighScore", gameValues.currentScore);
         }
 
-        texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
-
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            texts[4].text = "High Score : " + PlayerPrefs.GetFloat("HighScore");
+        }
+        
         //Store and show MyCoin.
         PlayerPrefs.SetInt("MyCoin", PlayerPrefs.GetInt("MyCoin") + gameValues.coinCount);
         myCoin = PlayerPrefs.GetInt("MyCoin");
 
         resultCanv.gameObject.SetActive(true);
-        texts[1].text = ("" + myCoin);
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            texts[1].text = ("" + myCoin);
+        }
 
         //Not enough coin.
-        if ( alreadyExtraLife || myCoin <= gameValues.extraLifePrice )
+        if (SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            OnExtraLifeUpdate();
+        }
+    }
+
+    void OnExtraLifeUpdate()
+    {
+        Debug.Log("Event Enter");
+        Debug.Log(alreadyExtraLife);
+        Debug.Log(myCoin);
+
+        myCoin = PlayerPrefs.GetInt("MyCoin");
+
+        if (alreadyExtraLife || myCoin < gameValues.extraLifePrice)
         {
             buttons[0].interactable = false;
             texts[2].gameObject.SetActive(true);
+        }
+        else
+        {
+            buttons[0].interactable = true;
+            texts[2].gameObject.SetActive(false);
         }
     }
 
