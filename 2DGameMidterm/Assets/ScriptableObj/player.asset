@@ -19,18 +19,17 @@ MonoBehaviour:
   SpawnDistance: 50
   bgPropMultiplier: {x: 0.6, y: 0.3}
   bgMultiplier: {x: 0.8, y: 0.5}
-  cloudMultiplier: {x: 0.2, y: 0.05}
   bgXLMultiplier: {x: 0.4, y: 0.1}
-  easyToNormal: 10
+  easyToNormal: 5
   healthPrice: 15
   extraLifePrice: 100
   rewardAdsPrice: 100
   dungeon1Price: 500
   HealthPoint: 1
-  coinCount: 0
-  currentScore: 0
+  coinCount: 3
+  currentScore: 72.09947
   difficultyIndex: 2
-  BeforeDeadPosition: {x: 1, y: 0, z: 0}
+  BeforeDeadPosition: {x: 49.938, y: 0, z: 0}
   BeforeDeadPlatform: 
   lastSceneIndex: 2
   playAgain: 0
